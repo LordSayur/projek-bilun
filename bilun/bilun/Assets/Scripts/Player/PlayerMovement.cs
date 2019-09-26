@@ -23,21 +23,41 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 direction = GetMovementDirection();
+        Vector3 movementDirection = GetMovementDirection();
 
+        Move(movementDirection);
+
+        Turning(movementDirection);
+
+        Animate();
+    }
+
+    // Move towards given direction
+    void Move(Vector3 direction)
+    {
         Vector3 movement = direction * moveSpeed;
 
-        //  Move character
         playerRigidbody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
+    }
 
+    //  Rotate towards given direction
+    void Turning(Vector3 direction)
+    {
         if (direction != Vector3.zero)
         {
-            // Rotate towards direction
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             transform.eulerAngles = new Vector3(0, angle, 0);
+        }
+    }
 
-            //  Animate character
-            animator.SetFloat("speed", direction.sqrMagnitude);
+    //  Animate Character
+    void Animate()
+    {
+        if (playerInput.MoveInput.sqrMagnitude > 0)
+        {
+            animator.SetFloat("speed", playerInput.MoveInput.sqrMagnitude, 0.1f, Time.deltaTime);
+        } else {
+            animator.SetFloat("speed", 0);
         }
     }
 
