@@ -5,15 +5,24 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 10f;
+    public float jumpForce = 5f;
+    public float gravityForce = 1f;
+
     private PlayerInput playerInput;
     private Rigidbody playerRigidbody;
     private Animator animator;
+    private CapsuleCollider capsuleCollider;
+
+    private LayerMask groundLayer;
 
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         playerRigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
+
+        groundLayer = LayerMask.GetMask("Ground");
     }
 
     void Update()
@@ -24,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movementDirection = GetMovementDirection();
+
+        HandleAirBorne();
 
         Move(movementDirection);
 
@@ -60,6 +71,30 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("speed", 0);
         }
     }
+    
+    //  Handle air movement
+    void HandleAirBorne ()
+    {
+        if (IsGrounded())
+        {
+            Jump();
+        } else {
+            ApplyGravity();
+        }
+    }
+
+    //  Apply jump force to player
+    void Jump()
+    {
+        if (playerInput.JumpInput)
+            playerRigidbody.AddForce(jumpForce * transform.up, ForceMode.Impulse);
+    }
+
+    //  Apply extra gravity force to player
+    void ApplyGravity()
+    {
+        playerRigidbody.AddForce(-gravityForce * transform.up);
+    }
 
     //  Get movement direction based on camera direction and normalized
     Vector3 GetMovementDirection()
@@ -75,5 +110,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         return movementDirection;
+    }
+  
+    //  Check if player is grounded
+    bool IsGrounded()
+    {
+        float radius = capsuleCollider.radius;
+        Vector3 position = transform.position + Vector3.up * radius;
+
+        return Physics.CheckSphere(position, radius, groundLayer);
     }
 }
