@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public string HorizontalAxis = "Horizontal";
+    public string VerticalAxis = "Vertical";
+    public string Jump = "Jump";
+    public string Dash = "Dash";
+
     public Vector2 MoveInput { get; private set; }
     public bool JumpInput { get; private set; }
+    public bool DashInput { get; private set; }
 
     public void UpdateInput()
     {
-        MoveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        MoveInput = new Vector2(Input.GetAxis(HorizontalAxis), Input.GetAxis(VerticalAxis));
 
-        JumpInput = Input.GetButtonDown("Jump");
+        JumpInput = Input.GetButtonDown(Jump);
+
+        DashInput = Input.GetButtonDown(Dash);
     }
 }
