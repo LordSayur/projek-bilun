@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public string HorizontalAxis = "Horizontal1";
-    public string VerticalAxis = "Vertical1";
+    public string HorizontalAxis = "Horizontal";
+    public string VerticalAxis = "Vertical";
     public string Jump = "Jump";
 
     public Vector2 MoveInput { get; private set; }
