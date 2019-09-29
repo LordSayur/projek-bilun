@@ -472,8 +472,8 @@ MonoBehaviour:
   moveSpeed: 10
   dashDuration: 0.2
   dashForce: 20
-  jumpForce: 5
-  gravityForce: 1
+  jumpForce: 8
+  gravityForce: 20
 --- !u!114 &1506107114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,8 +570,8 @@ MonoBehaviour:
   moveSpeed: 10
   dashDuration: 0.2
   dashForce: 20
-  jumpForce: 5
-  gravityForce: 1
+  jumpForce: 8
+  gravityForce: 20
 --- !u!114 &1719513251
 MonoBehaviour:
   m_ObjectHideFlags: 0
