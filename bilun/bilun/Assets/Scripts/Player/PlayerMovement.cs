@@ -70,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
     // Move towards given direction
     void Move(Vector3 direction)
     {
+        if (isDashing)
+            return;
+
         Vector3 movement = direction * moveSpeed;
 
         playerRigidbody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
@@ -78,6 +81,9 @@ public class PlayerMovement : MonoBehaviour
     //  Rotate towards given direction
     void Turning(Vector3 direction)
     {
+        if (isDashing)
+            return;
+
         if (direction != Vector3.zero)
         {
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
