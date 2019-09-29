@@ -470,6 +470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  dashDuration: 2
+  dashForce: 5
   jumpForce: 5
   gravityForce: 1
 --- !u!114 &1506107114
@@ -487,6 +489,7 @@ MonoBehaviour:
   HorizontalAxis: Horizontal
   VerticalAxis: Vertical
   Jump: Jump
+  Dash: Dash
 --- !u!54 &1506107115
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -565,6 +568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  dashDuration: 100
+  dashForce: 100
   jumpForce: 5
   gravityForce: 1
 --- !u!114 &1719513251
@@ -582,6 +587,7 @@ MonoBehaviour:
   HorizontalAxis: Horizontal1
   VerticalAxis: Vertical1
   Jump: Jump1
+  Dash: Dash1
 --- !u!136 &1719513252
 CapsuleCollider:
   m_ObjectHideFlags: 0
