@@ -413,6 +413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024b83926451f2f4c8e664826387d3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HorizontalAxis: Horizontal
+  VerticalAxis: Vertical
+  Jump: Jump
 --- !u!54 &1506107115
 Rigidbody:
   m_ObjectHideFlags: 0
