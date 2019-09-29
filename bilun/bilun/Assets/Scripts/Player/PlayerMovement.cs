@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 10f;
+    public float dashDuration = 0.2f;
+    public float dashForce = 20f;
     public float jumpForce = 5f;
     public float gravityForce = 1f;
 
@@ -14,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private CapsuleCollider capsuleCollider;
 
     private LayerMask groundLayer;
+    private bool isDashing = false;
 
     void Awake()
     {
@@ -36,11 +39,32 @@ public class PlayerMovement : MonoBehaviour
 
         HandleAirBorne();
 
+        Dash();
+
         Move(movementDirection);
 
         Turning(movementDirection);
 
         Animate();
+    }
+
+    // Handle Dashing
+    void Dash()
+    {
+        if (playerInput.DashInput && !isDashing)
+            StartCoroutine(Dashing());
+    }
+
+    // Dashing towards current forward direction
+    IEnumerator Dashing()
+    {
+        isDashing = true;
+        playerRigidbody.AddForce(dashForce * transform.forward, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        isDashing = false;
+        playerRigidbody.velocity = Vector3.zero;
     }
 
     // Move towards given direction
