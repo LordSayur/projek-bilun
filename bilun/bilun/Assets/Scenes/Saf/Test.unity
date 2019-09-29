@@ -470,8 +470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  dashDuration: 2
-  dashForce: 5
+  dashDuration: 0.2
+  dashForce: 20
   jumpForce: 5
   gravityForce: 1
 --- !u!114 &1506107114
@@ -568,8 +568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  dashDuration: 100
-  dashForce: 100
+  dashDuration: 0.2
+  dashForce: 20
   jumpForce: 5
   gravityForce: 1
 --- !u!114 &1719513251
