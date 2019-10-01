@@ -120,25 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &218908296 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6050680582510814877, guid: 44324f0ece91e8342bc4ffcb3f856b04,
-    type: 3}
-  m_PrefabInstance: {fileID: 6050680583421196405}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &218908297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218908296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aece2b364d115654c91c14d9d6e6bc15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPlaceHolder: {fileID: 2098200904}
 --- !u!1 &346738697
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,25 +203,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
---- !u!1 &417349197 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6041931692467445765, guid: 5422f89cbf86e1e4cb6b480e0528271f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6041931691831840932}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &417349198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417349197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aece2b364d115654c91c14d9d6e6bc15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPlaceHolder: {fileID: 1311359827}
 --- !u!1 &424275637
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,12 +442,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ead23f2a62b62dc41aee908af20f485c,
     type: 3}
   m_PrefabInstance: {fileID: 941404375}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1311359827 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6041931691873308240, guid: 5422f89cbf86e1e4cb6b480e0528271f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6041931691831840932}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1652896950
 PrefabInstance:
@@ -819,12 +775,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!4 &2098200904 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6050680583593337586, guid: 44324f0ece91e8342bc4ffcb3f856b04,
-    type: 3}
-  m_PrefabInstance: {fileID: 6050680583421196405}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6041931691831840932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -836,11 +786,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041931692467445765, guid: 5422f89cbf86e1e4cb6b480e0528271f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6041931692467445762, guid: 5422f89cbf86e1e4cb6b480e0528271f,
         type: 3}
@@ -903,16 +848,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 13400000, guid: 07e4cea34031ffd4b9ecfd784364c795,
         type: 2}
-    - target: {fileID: 6041931692467445767, guid: 5422f89cbf86e1e4cb6b480e0528271f,
-        type: 3}
-      propertyPath: Action
-      value: Action1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041931692467445767, guid: 5422f89cbf86e1e4cb6b480e0528271f,
-        type: 3}
-      propertyPath: Attack
-      value: Attack1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5422f89cbf86e1e4cb6b480e0528271f, type: 3}
 --- !u!1001 &6050680583421196405
@@ -926,16 +861,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ' Player 1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6050680582510814877, guid: 44324f0ece91e8342bc4ffcb3f856b04,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6050680582510814877, guid: 44324f0ece91e8342bc4ffcb3f856b04,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6050680582510814873, guid: 44324f0ece91e8342bc4ffcb3f856b04,
         type: 3}
