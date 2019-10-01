@@ -12,6 +12,9 @@ public class PickUpTrigger : MonoBehaviour
         {
             PlayerAttack playerAttack = other.GetComponent<PlayerAttack>();
             playerAttack.Equip(weapon);
+
+            Destroy(this);
+            Destroy(this.GetComponent<SphereCollider>());
         }
     }
 }
