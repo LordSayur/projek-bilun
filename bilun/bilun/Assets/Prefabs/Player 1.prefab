@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6050680582510814872}
   - component: {fileID: 6050680582510814879}
   - component: {fileID: 6050680582510814876}
+  - component: {fileID: 218908297}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +82,8 @@ MonoBehaviour:
   VerticalAxis: Vertical
   Jump: Jump
   Dash: Dash
+  Action: Action
+  Attack: Attack
 --- !u!114 &6050680582510814876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +101,19 @@ MonoBehaviour:
   dashForce: 20
   jumpForce: 8
   gravityForce: 20
+--- !u!114 &218908297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050680582510814877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aece2b364d115654c91c14d9d6e6bc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPlaceHolder: {fileID: 6050680583593337586}
 --- !u!1001 &6050680583592989080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,6 +182,12 @@ PrefabInstance:
 --- !u!4 &6050680583593359108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435868, guid: 5e488cfd825ce044395037d93a9d8eb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6050680583592989080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6050680583593337586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 455530, guid: 5e488cfd825ce044395037d93a9d8eb6,
     type: 3}
   m_PrefabInstance: {fileID: 6050680583592989080}
   m_PrefabAsset: {fileID: 0}
