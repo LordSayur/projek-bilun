@@ -8,10 +8,14 @@ public class PlayerInput : MonoBehaviour
     public string VerticalAxis = "Vertical";
     public string Jump = "Jump";
     public string Dash = "Dash";
+    public string Action = "Action";
+    public string Attack = "Attack";
 
     public Vector2 MoveInput { get; private set; }
     public bool JumpInput { get; private set; }
     public bool DashInput { get; private set; }
+    public bool ActionInput { get; private set; }
+    public bool AttackInput { get; private set; }
 
     public void UpdateInput()
     {
@@ -20,5 +24,9 @@ public class PlayerInput : MonoBehaviour
         JumpInput = Input.GetButtonDown(Jump);
 
         DashInput = Input.GetButtonDown(Dash);
+
+        ActionInput = Input.GetButtonDown(Action);
+
+        AttackInput = Input.GetButtonDown(Attack);
     }
 }
