@@ -10,6 +10,9 @@ public class WeaponData : ScriptableObject
 
     public Vector3 holdPosition = Vector3.zero;
     public Vector3 holdRotation = Vector3.zero;
+
+    public Rigidbody projectilePrefab = null;
+    public float projectileSpeed = 20f;
 }
 
 public enum WeaponType {
