@@ -18,4 +18,4 @@ MonoBehaviour:
   holdRotation: {x: -0.145, y: 90, z: -90}
   projectilePrefab: {fileID: 3453324074156135848, guid: 81139edbbb55b5c4fa9504aa8d2d630c,
     type: 3}
-  projectileSpeed: 20
+  projectileSpeed: 30
