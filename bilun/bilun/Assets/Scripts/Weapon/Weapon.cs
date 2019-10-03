@@ -9,11 +9,13 @@ public class Weapon : MonoBehaviour
 
     Rigidbody weaponRigidBody = null;
     BoxCollider boxCollider = null;
+    PickUpWeaponObject pickUpWeaponObject = null;
 
     void Awake ()
     {
         weaponRigidBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
+        pickUpWeaponObject = GetComponent<PickUpWeaponObject>();
     }
 
    public void Attack(PlayerAttack attacker)
