@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public WeaponData weaponData;
+    public Transform projectileSpawnT = null;
 
    public void Attack(PlayerAttack attacker)
    {
@@ -14,7 +15,11 @@ public class Weapon : MonoBehaviour
        }
        else
        {
-           Debug.Log("Phew! Phew!");
+           Rigidbody projectileClone = Instantiate(weaponData.projectilePrefab, 
+                                                projectileSpawnT.position, 
+                                                projectileSpawnT.rotation);
+           if (projectileClone != null)
+                projectileClone.AddForce(transform.forward * weaponData.projectileSpeed, ForceMode.Impulse);
        }
    }
 }
