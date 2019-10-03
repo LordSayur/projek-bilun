@@ -7,6 +7,15 @@ public class Weapon : MonoBehaviour
     public WeaponData weaponData;
     public Transform projectileSpawnT = null;
 
+    Rigidbody weaponRigidBody = null;
+    BoxCollider boxCollider = null;
+
+    void Awake ()
+    {
+        weaponRigidBody = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
+    }
+
    public void Attack(PlayerAttack attacker)
    {
        if (weaponData.weaponType == WeaponType.Melee)
@@ -21,5 +30,17 @@ public class Weapon : MonoBehaviour
            if (projectileClone != null)
                 projectileClone.AddForce(transform.forward * weaponData.projectileSpeed, ForceMode.Impulse);
        }
+   }
+
+   public void EnableWeapon()
+   {
+        weaponRigidBody.isKinematic = true;
+        boxCollider.enabled = false;
+   }
+
+   public void DisableWeapon()
+   {
+        weaponRigidBody.isKinematic = false;
+        boxCollider.enabled = true;
    }
 }
