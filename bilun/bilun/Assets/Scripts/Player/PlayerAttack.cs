@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
     {
         Unequip();
 
-        newWeapon.EnableWeapon();
+        newWeapon.Carry();
 
         //  place weapon in hand
         newWeapon.transform.parent = weaponPlaceHolder;
@@ -56,8 +56,7 @@ public class PlayerAttack : MonoBehaviour
         if (currentWeapon == null)
             return;
 
-        currentWeapon.DisableWeapon();
-        currentWeapon.GetComponent<PickUpWeaponObject>().IsCarryByPlayer = false;
+        currentWeapon.Throw();
 
         //  If ranged weapon change to normal locomotion animation
        if (currentWeapon.weaponData.weaponType == WeaponType.Ranged)
