@@ -36,12 +36,15 @@ public class PlayerAttack : MonoBehaviour
         Unequip();
 
         newWeapon.EnableWeapon();
+
+        //  place weapon in hand
         newWeapon.transform.parent = weaponPlaceHolder;
         newWeapon.transform.localPosition = newWeapon.weaponData.holdPosition;
         newWeapon.transform.localRotation = Quaternion.Euler(newWeapon.weaponData.holdRotation);
 
         currentWeapon = newWeapon;
 
+        //  If ranged weapon change to ranged locomotion animation
         if (newWeapon.weaponData.weaponType == WeaponType.Ranged)
         {
             animator.SetBool("ranged", true);
@@ -55,13 +58,14 @@ public class PlayerAttack : MonoBehaviour
 
         currentWeapon.DisableWeapon();
         currentWeapon.GetComponent<PickUpTrigger>().isCarry = false;
+
+        //  If ranged weapon change to normal locomotion animation
        if (currentWeapon.weaponData.weaponType == WeaponType.Ranged)
         {
             animator.SetBool("ranged", false);
         }
-
+             
         currentWeapon.transform.parent = null;
-
 
         currentWeapon = null;
     }
