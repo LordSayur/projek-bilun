@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
             return;
 
         currentWeapon.DisableWeapon();
-        currentWeapon.GetComponent<PickUpTrigger>().isCarry = false;
+        currentWeapon.GetComponent<PickUpWeaponObject>().IsCarryByPlayer = false;
 
         //  If ranged weapon change to normal locomotion animation
        if (currentWeapon.weaponData.weaponType == WeaponType.Ranged)
