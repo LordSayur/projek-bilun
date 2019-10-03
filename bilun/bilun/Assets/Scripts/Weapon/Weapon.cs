@@ -32,15 +32,16 @@ public class Weapon : MonoBehaviour
        }
    }
 
-   public void EnableWeapon()
+   public void Carry()
    {
         weaponRigidBody.isKinematic = true;
         boxCollider.enabled = false;
    }
 
-   public void DisableWeapon()
+   public void Throw()
    {
         weaponRigidBody.isKinematic = false;
         boxCollider.enabled = true;
+        pickUpWeaponObject.IsCarryByPlayer = false;
    }
 }
