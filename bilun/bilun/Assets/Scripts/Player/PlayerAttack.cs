@@ -35,6 +35,7 @@ public class PlayerAttack : MonoBehaviour
     {
         Unequip();
 
+        newWeapon.EnableWeapon();
         newWeapon.transform.parent = weaponPlaceHolder;
         newWeapon.transform.localPosition = newWeapon.weaponData.holdPosition;
         newWeapon.transform.localRotation = Quaternion.Euler(newWeapon.weaponData.holdRotation);
@@ -52,6 +53,8 @@ public class PlayerAttack : MonoBehaviour
         if (currentWeapon == null)
             return;
 
+        currentWeapon.DisableWeapon();
+        currentWeapon.GetComponent<PickUpTrigger>().isCarry = false;
        if (currentWeapon.weaponData.weaponType == WeaponType.Ranged)
         {
             animator.SetBool("ranged", false);
@@ -59,7 +62,6 @@ public class PlayerAttack : MonoBehaviour
 
         currentWeapon.transform.parent = null;
 
-        Destroy(currentWeapon.gameObject);
 
         currentWeapon = null;
     }
