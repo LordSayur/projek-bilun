@@ -90,10 +90,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6356838339528219678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c9e7977e57cd145aa93636be4197e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e5ee1d2dec5eeb4a882b09853f2e5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 6356838339528219676}
 --- !u!135 &6356838339528219677
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -143,11 +142,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6356838339528219679}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: ead23f2a62b62dc41aee908af20f485c,
-        type: 3}
-      propertyPath: m_Name
-      value: SM_Wep_Watergun_01
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ead23f2a62b62dc41aee908af20f485c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -202,6 +196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ead23f2a62b62dc41aee908af20f485c,
+        type: 3}
+      propertyPath: m_Name
+      value: SM_Wep_Watergun_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead23f2a62b62dc41aee908af20f485c, type: 3}
