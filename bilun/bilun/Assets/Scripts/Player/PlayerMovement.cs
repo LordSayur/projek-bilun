@@ -57,6 +57,14 @@ public class PlayerMovement : MonoBehaviour
         Turning(movementDirection);
 
         Animate();
+
+        if (speedChanged)
+        {
+            if (Time.time > speedTimer)
+            {
+                SetToNormalSpeed();
+            }
+        }
     }
 
     // Handle Dashing
