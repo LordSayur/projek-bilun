@@ -161,4 +161,20 @@ public class PlayerMovement : MonoBehaviour
 
         return Physics.CheckSphere(position, radius, groundLayer);
     }
+
+    public void ChangeSpeed(float newSpeed, float duration)
+    {
+        currentSpeed = newSpeed;
+        animator.speed = newSpeed / moveSpeed;
+        speedTimer = Time.time + duration;
+        speedChanged = true;
+    }
+
+    public void SetToNormalSpeed ()
+    {
+        currentSpeed = moveSpeed;
+        animator.speed = defaultAnimatorSpeed;
+        speedTimer = 0;
+        speedChanged = false;
+    }
 }
