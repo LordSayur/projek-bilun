@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
             return;
 
-        Vector3 movement = direction * moveSpeed;
+        Vector3 movement = direction * currentSpeed;
 
         playerRigidbody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
     }
