@@ -21,6 +21,11 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask groundLayer;
     private bool isDashing = false;
 
+    public float currentSpeed = 0f;
+    private float defaultAnimatorSpeed = 0f;
+    private bool speedChanged = false;
+    private float speedTimer = 0f;
+
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
