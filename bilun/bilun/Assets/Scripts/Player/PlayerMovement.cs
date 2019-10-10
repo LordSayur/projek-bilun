@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
 
         groundLayer = LayerMask.GetMask("Ground");
+
+        currentSpeed = moveSpeed;
+        defaultAnimatorSpeed = animator.speed;
     }
 
     void Update()
