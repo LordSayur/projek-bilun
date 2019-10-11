@@ -102,6 +102,7 @@ MonoBehaviour:
   dashForce: 20
   jumpForce: 8
   gravityForce: 20
+  currentSpeed: 0
 --- !u!114 &218908297
 MonoBehaviour:
   m_ObjectHideFlags: 0
