@@ -21,11 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask groundLayer;
     private bool isDashing = false;
 
-    public float currentSpeed = 0f;
-    private float defaultAnimatorSpeed = 0f;
-    private bool speedChanged = false;
-    private float speedTimer = 0f;
-
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -34,9 +29,6 @@ public class PlayerMovement : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
 
         groundLayer = LayerMask.GetMask("Ground");
-
-        currentSpeed = moveSpeed;
-        defaultAnimatorSpeed = animator.speed;
     }
 
     void Update()
@@ -57,14 +49,6 @@ public class PlayerMovement : MonoBehaviour
         Turning(movementDirection);
 
         Animate();
-
-        if (speedChanged)
-        {
-            if (Time.time > speedTimer)
-            {
-                SetToNormalSpeed();
-            }
-        }
     }
 
     // Handle Dashing
@@ -92,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
             return;
 
-        Vector3 movement = direction * currentSpeed;
+        Vector3 movement = direction * moveSpeed;
 
         playerRigidbody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
     }
@@ -168,21 +152,5 @@ public class PlayerMovement : MonoBehaviour
         Vector3 position = transform.position + Vector3.up * radius;
 
         return Physics.CheckSphere(position, radius, groundLayer);
-    }
-
-    public void ChangeSpeed(float newSpeed, float duration)
-    {
-        currentSpeed = newSpeed;
-        animator.speed = newSpeed / moveSpeed;
-        speedTimer = Time.time + duration;
-        speedChanged = true;
-    }
-
-    public void SetToNormalSpeed ()
-    {
-        currentSpeed = moveSpeed;
-        animator.speed = defaultAnimatorSpeed;
-        speedTimer = 0;
-        speedChanged = false;
     }
 }
