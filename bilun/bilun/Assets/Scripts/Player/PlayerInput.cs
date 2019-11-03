@@ -18,7 +18,6 @@ public class PlayerInput : MonoBehaviour
     public bool AttackInput { get; private set; }
 
     private bool inverted = false;
-    private float reverseTimer = 0f;
 
     public void UpdateInput()
     {
@@ -32,25 +31,17 @@ public class PlayerInput : MonoBehaviour
         ActionInput = Input.GetButtonDown(Action);
 
         AttackInput = Input.GetButtonDown(Attack);
-
-        if (inverted)
-        {
-            if (Time.time > reverseTimer)
-            {
-                SetControllerBackToNormal();
-            }
-        }
     }
 
-    public void ReverseController(float duration)
+    public void Reverse(float duration)
     {
         inverted = true; 
-        reverseTimer = Time.time + duration;
+        
+        Timer.Instance.AddToTimer(duration, SetControllerBackToNormal);
     }
 
     public void SetControllerBackToNormal()
     {
         inverted = false;
-        reverseTimer = 0;
     }
 }

@@ -23,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float currentSpeed = 0f;
     private float defaultAnimatorSpeed = 0f;
-    private bool speedChanged = false;
-    private float speedTimer = 0f;
 
     void Awake()
     {
@@ -57,14 +55,6 @@ public class PlayerMovement : MonoBehaviour
         Turning(movementDirection);
 
         Animate();
-
-        if (speedChanged)
-        {
-            if (Time.time > speedTimer)
-            {
-                SetToNormalSpeed();
-            }
-        }
     }
 
     // Handle Dashing
@@ -170,19 +160,25 @@ public class PlayerMovement : MonoBehaviour
         return Physics.CheckSphere(position, radius, groundLayer);
     }
 
-    public void ChangeSpeed(float newSpeed, float duration)
+    public void IncreaseSpeed(float value, float duration)
     {
-        currentSpeed = newSpeed;
-        animator.speed = newSpeed / moveSpeed;
-        speedTimer = Time.time + duration;
-        speedChanged = true;
+        currentSpeed += value;
+        animator.speed = currentSpeed / moveSpeed;
+
+        Timer.Instance.AddToTimer(duration, SetToNormalSpeed);
+    }
+
+    public void DecreaseSpeed(float value, float duration)
+    {
+        currentSpeed -= value;
+        animator.speed = currentSpeed / moveSpeed;
+
+        Timer.Instance.AddToTimer(duration, SetToNormalSpeed);
     }
 
     public void SetToNormalSpeed ()
     {
         currentSpeed = moveSpeed;
         animator.speed = defaultAnimatorSpeed;
-        speedTimer = 0;
-        speedChanged = false;
     }
 }
