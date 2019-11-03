@@ -21,9 +21,12 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask groundLayer;
     private bool isDashing = false;
 
+<<<<<<< HEAD
     public float currentSpeed = 0f;
     private float defaultAnimatorSpeed = 0f;
 
+=======
+>>>>>>> 43800bc5b8feebc79583d09c0cac5b3f55ef5c68
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -32,9 +35,6 @@ public class PlayerMovement : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
 
         groundLayer = LayerMask.GetMask("Ground");
-
-        currentSpeed = moveSpeed;
-        defaultAnimatorSpeed = animator.speed;
     }
 
     void Update()
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
             return;
 
-        Vector3 movement = direction * currentSpeed;
+        Vector3 movement = direction * moveSpeed;
 
         playerRigidbody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
     }
@@ -159,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
 
         return Physics.CheckSphere(position, radius, groundLayer);
     }
+<<<<<<< HEAD
 
     public void IncreaseSpeed(float value, float duration)
     {
@@ -181,4 +182,6 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = moveSpeed;
         animator.speed = defaultAnimatorSpeed;
     }
+=======
+>>>>>>> 43800bc5b8feebc79583d09c0cac5b3f55ef5c68
 }
