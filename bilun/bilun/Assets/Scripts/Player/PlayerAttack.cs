@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    Weapon currentWeapon = null;
-
     public Animator animator {get; set;}
 
     public Transform weaponPlaceHolder = null;
     PlayerInput playerInput = null;
+
+    Weapon equipWeapon = null;
 
     void Awake()
     {
@@ -21,51 +21,35 @@ public class PlayerAttack : MonoBehaviour
     {
         if (playerInput.AttackInput)
         {
-            Attack();
+            if (equipWeapon is IShootable)
+            {
+                IShootable gun = equipWeapon.GetComponent<IShootable>();
+                if (gun != null)
+                    gun.Shoot();
+            } else if (equipWeapon is ISwingable)
+            {
+                Melee weapon = equipWeapon.GetComponent<Melee>();
+                if (weapon != null)
+                    weapon.Swing(this);
+            }
         }
-    }
-
-    void Attack()
-    {
-        if (currentWeapon != null)
-            currentWeapon.Attack(this);
     }
 
     public void Equip(Weapon newWeapon)
     {
         Unequip();
 
-        newWeapon.Carry();
+        newWeapon.Equip(this);
 
-        //  place weapon in hand
-        newWeapon.transform.parent = weaponPlaceHolder;
-        newWeapon.transform.localPosition = newWeapon.weaponData.holdPosition;
-        newWeapon.transform.localRotation = Quaternion.Euler(newWeapon.weaponData.holdRotation);
-
-        currentWeapon = newWeapon;
-
-        //  If ranged weapon change to ranged locomotion animation
-        if (newWeapon.weaponData.weaponType == WeaponType.Ranged)
-        {
-            animator.SetBool("ranged", true);
-        }
+        equipWeapon = newWeapon;
     }
 
     public void Unequip()
     {
-        if (currentWeapon == null)
+        if (equipWeapon == null)
             return;
 
-        currentWeapon.Throw();
-
-        //  If ranged weapon change to normal locomotion animation
-       if (currentWeapon.weaponData.weaponType == WeaponType.Ranged)
-        {
-            animator.SetBool("ranged", false);
-        }
-             
-        currentWeapon.transform.parent = null;
-
-        currentWeapon = null;
+        equipWeapon.Unequip(this);
+        equipWeapon = null;
     }
 }

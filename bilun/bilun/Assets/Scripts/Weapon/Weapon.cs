@@ -2,48 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour, IEquipable
 {
-    public WeaponData weaponData;
-    public Transform projectileSpawnT = null;
+    public Vector3 holdPosition = Vector3.zero;
+    public Vector3 holdRotation = Vector3.zero;
 
     Rigidbody weaponRigidBody = null;
     BoxCollider boxCollider = null;
-    PickUpWeaponObject pickUpWeaponObject = null;
+
+    bool isCarry = false;
 
     void Awake ()
     {
         weaponRigidBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
-        pickUpWeaponObject = GetComponent<PickUpWeaponObject>();
     }
 
-   public void Attack(PlayerAttack attacker)
-   {
-       if (weaponData.weaponType == WeaponType.Melee)
-       {
-           attacker.animator.SetTrigger("melee");
-       }
-       else
-       {
-           Rigidbody projectileClone = Instantiate(weaponData.projectilePrefab, 
-                                                projectileSpawnT.position, 
-                                                projectileSpawnT.rotation);
-           if (projectileClone != null)
-                projectileClone.AddForce(transform.forward * weaponData.projectileSpeed, ForceMode.Impulse);
-       }
-   }
-
-   public void Carry()
+   public virtual void Equip(PlayerAttack actor)
    {
         weaponRigidBody.isKinematic = true;
         boxCollider.enabled = false;
+        isCarry = true;
+
+        transform.parent = actor.weaponPlaceHolder;
+        transform.localPosition = holdPosition;
+        transform.localRotation = Quaternion.Euler(holdRotation);
    }
 
-   public void Throw()
+   public virtual void Unequip(PlayerAttack actor)
    {
+        transform.parent = null;
+        
         weaponRigidBody.isKinematic = false;
         boxCollider.enabled = true;
-        pickUpWeaponObject.IsCarryByPlayer = false;
+        isCarry = false;
    }
+
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && !isCarry)
+        {
+            PlayerAttack playerAttack = other.GetComponent<PlayerAttack>();
+            if (playerAttack == null)
+                return;
+                
+            playerAttack.Equip(this);
+        }
+    }
 }
