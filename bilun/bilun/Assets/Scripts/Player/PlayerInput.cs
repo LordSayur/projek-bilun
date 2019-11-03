@@ -17,12 +17,14 @@ public class PlayerInput : MonoBehaviour
     public bool ActionInput { get; private set; }
     public bool AttackInput { get; private set; }
 
+<<<<<<< HEAD
     private bool inverted = false;
 
+=======
+>>>>>>> 43800bc5b8feebc79583d09c0cac5b3f55ef5c68
     public void UpdateInput()
     {
-        MoveInput = new Vector2(Input.GetAxis(HorizontalAxis) * (inverted ? -1 : 1), 
-                                Input.GetAxis(VerticalAxis) * (inverted ? -1 : 1));
+        MoveInput = new Vector2(Input.GetAxis(HorizontalAxis), Input.GetAxis(VerticalAxis));
 
         JumpInput = Input.GetButtonDown(Jump);
 
@@ -31,6 +33,7 @@ public class PlayerInput : MonoBehaviour
         ActionInput = Input.GetButtonDown(Action);
 
         AttackInput = Input.GetButtonDown(Attack);
+<<<<<<< HEAD
     }
 
     public void Reverse(float duration)
@@ -43,5 +46,7 @@ public class PlayerInput : MonoBehaviour
     public void SetControllerBackToNormal()
     {
         inverted = false;
+=======
+>>>>>>> 43800bc5b8feebc79583d09c0cac5b3f55ef5c68
     }
 }
