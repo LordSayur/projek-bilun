@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5122765958955340680}
   - component: {fileID: 4741535100080102223}
   - component: {fileID: 238223609}
-  - component: {fileID: 5518795182886882029}
   m_Layer: 0
   m_Name: SpeedBoostItem
   m_TagString: Untagged
@@ -63,18 +62,6 @@ MonoBehaviour:
   increaseValue: 20
   duration: 10
 --- !u!114 &238223609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5122765958955340686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e116e3fa9df441845bb2012689447bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5518795182886882029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
