@@ -44,6 +44,13 @@ public class BalloonController : MonoBehaviour
     }
 
     public void DestroyBallon(){
+        // -- Fifah edited
+
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<BalloonTracker>().BalloonDestroyed();
+
+        // ---- // 
+
         Destroy(gameObject);
+
     }
 }

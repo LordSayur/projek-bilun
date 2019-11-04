@@ -29,6 +29,9 @@ public class PlayerSpawner : MonoBehaviour {
                 occupiedPos.Add(r);
 
                 GameObject clonePlayer = Instantiate(players[i]);
+
+                clonePlayer.name = players[i].name;
+
                 clonePlayer.transform.position = new Vector3(spawnPos[r].position.x, spawnPos[r].position.y, spawnPos[r].position.z);
 
             }
