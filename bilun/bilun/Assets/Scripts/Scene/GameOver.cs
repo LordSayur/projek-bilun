@@ -10,6 +10,10 @@ public class GameOver : MonoBehaviour {
     public GameObject gameOverUI;
     public Text playerWonText;
 
+    public void Start() {
+        Time.timeScale = 1f;
+    }
+
     public void Trigger() {
         
         Time.timeScale = 0f;
