@@ -17,7 +17,7 @@ using UnityEngine;
          }
      }
  
-     protected void Awake()
+     protected virtual void Awake()
      {
          if (instance == null)
              instance = this as T;
