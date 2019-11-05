@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupSpawner : MonoBehaviour {
+public class PickupSpawner : Singleton<PickupSpawner>  {
 
     public GameObject[] weaponMalee;
     public GameObject[] weaponRanged;
@@ -12,6 +12,8 @@ public class PickupSpawner : MonoBehaviour {
 
     private Transform[] spawnPos;
     private List<int> occupiedPos = new List<int>();
+
+    private List<GameObject> spawnPickups = new List<GameObject>();
     
     public void SpawnPickups() {
 
@@ -57,8 +59,14 @@ public class PickupSpawner : MonoBehaviour {
 
             GameObject cloneObj = Instantiate(arrayObj[randObj]);
             cloneObj.transform.position = new Vector3(spawnPos[r].position.x, spawnPos[r].position.y, spawnPos[r].position.z);
-
+            spawnPickups.Add(cloneObj);
         }
+    }
+
+    public void DestroyAllPickups()
+    {
+        foreach(GameObject pickup in spawnPickups)
+            Destroy(pickup);
     }
     
 }
