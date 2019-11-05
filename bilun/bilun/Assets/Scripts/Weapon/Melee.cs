@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Melee : Weapon, ISwingable
 {
-    bool hasHit = false;
-
     public void Swing(PlayerAttack actor)
     {
         actor.animator.SetTrigger("melee");
@@ -17,25 +15,13 @@ public class Melee : Weapon, ISwingable
 
         if (boxCollider.isTrigger == true)
         {
-            if (other.CompareTag("Balloon") && !hasHit)
+            if (other.CompareTag("Balloon"))
             {
-                hasHit = true;
                 BalloonController balloon = other.GetComponent<BalloonController>();
                 if (balloon == null)
                     return;
 
                 balloon.DestroyBallon();
-            }
-        }
-    }
-
-    public void OnCollisionExit(Collision collision)
-    {  
-        if (boxCollider.isTrigger == true)
-        {
-            if (collision.gameObject.CompareTag("Balloon"))
-            {
-                hasHit = false;
             }
         }
     }
