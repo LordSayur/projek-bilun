@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    int currentBalloon = 0;
+    public int currentBalloon = 0;
 
     public GameObject splashEffect;
 
@@ -29,5 +29,15 @@ public class PlayerHealth : MonoBehaviour
             Instantiate(splashEffect, transform.position + Vector3.up * 0.65f, Quaternion.identity);
 
         gameObject.SetActive(false);
+    }
+
+    public void Reactivate()
+    {
+        foreach(BalloonController balloon in GetComponentsInChildren<BalloonController>(true))
+            balloon.gameObject.SetActive(true);
+
+        currentBalloon = GetComponentsInChildren<BalloonController>().Length;
+
+        gameObject.SetActive(true);
     }
 }
