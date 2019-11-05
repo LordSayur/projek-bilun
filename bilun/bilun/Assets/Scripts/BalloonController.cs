@@ -48,6 +48,6 @@ public class BalloonController : MonoBehaviour
         if (player != null)
             player.TakeDamage();
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
