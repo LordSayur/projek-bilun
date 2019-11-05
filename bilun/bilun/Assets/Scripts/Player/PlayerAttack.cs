@@ -52,4 +52,24 @@ public class PlayerAttack : MonoBehaviour
         equipWeapon.Unequip(this);
         equipWeapon = null;
     }
+
+    public void OpenWeaponCollider()
+    {
+        if (equipWeapon is ISwingable)
+        {
+            Melee weapon = (Melee)equipWeapon;
+            if (weapon != null)
+                weapon.OpenCollider();
+        }
+    }
+
+    public void CloseWeaponCollider()
+    {
+        if (equipWeapon is ISwingable)
+        {
+            Melee weapon = (Melee)equipWeapon;
+            if (weapon != null)
+                weapon.CloseCollider();
+        }
+    }
 }
