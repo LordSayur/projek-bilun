@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1839419812127794239}
   - component: {fileID: 3453324074156135848}
   - component: {fileID: -9101551159278199226}
+  - component: {fileID: 7055384704332693367}
+  - component: {fileID: 7680818693187529077}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -62,6 +64,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayTime: 5
+--- !u!114 &7055384704332693367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408096716635192350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93041832dc1de7845a321184ef93eb26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7680818693187529077
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408096716635192350}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2413212, y: 0.22491741, z: 0.43406653}
+  m_Center: {x: 0.0061514676, y: 0.002050519, z: 0}
 --- !u!1 &7946102046100940719
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +100,6 @@ GameObject:
   - component: {fileID: 4613223790763074107}
   - component: {fileID: 6486424425422981333}
   - component: {fileID: 1196568281198913809}
-  - component: {fileID: 8062686052194734262}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -141,17 +167,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &8062686052194734262
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7946102046100940719}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
