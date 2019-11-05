@@ -13,6 +13,8 @@ public class Weapon : MonoBehaviour, IEquipable
 
     bool isCarry = false;
 
+    public bool isg = false;
+
     void Awake ()
     {
         weaponRigidBody = GetComponent<Rigidbody>();
@@ -20,8 +22,16 @@ public class Weapon : MonoBehaviour, IEquipable
         sphereCollider = GetComponent<SphereCollider>();
     }
 
+    void Update()
+    {
+        isg = IsFalling();
+    }
+
    public virtual void Equip(PlayerAttack actor)
    {
+        if (IsFalling())
+            return;
+
         weaponRigidBody.isKinematic = true;
         boxCollider.enabled = false;
         sphereCollider.enabled = false;
@@ -38,6 +48,14 @@ public class Weapon : MonoBehaviour, IEquipable
         
         weaponRigidBody.isKinematic = false;
         boxCollider.enabled = true;
+
+        StartCoroutine(Falling());
+   }
+
+   IEnumerator Falling()
+   {
+        yield return new WaitForSeconds(0.5f);
+
         sphereCollider.enabled = true;
         isCarry = false;
    }
@@ -52,5 +70,9 @@ public class Weapon : MonoBehaviour, IEquipable
                 
             playerAttack.Equip(this);
         }
+    }
+
+    bool IsFalling() {
+        return weaponRigidBody.velocity.y < 0;
     }
 }
