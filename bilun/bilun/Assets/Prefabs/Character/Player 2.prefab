@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4505440463527201281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041931691873605120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736ff78e313bca84eafb66221aa2237e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6041931692467445765
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +27,7 @@ GameObject:
   - component: {fileID: 6041931692467445766}
   - component: {fileID: 417349198}
   - component: {fileID: 5915828729258418810}
+  - component: {fileID: -4298723991640149698}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -129,6 +142,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f690b54c817ac428ba6322021e8972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4298723991640149698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041931692467445765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d91e4784ee99774bbb607cb08f4bcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashEffect: {fileID: 100748, guid: cd4d7020429cde74db076ffa72495419, type: 3}
 --- !u!1001 &6041931691873786680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +220,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6412c6bdd410913469520a05a1632885, type: 3}
+--- !u!1 &6041931691873605120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 183608, guid: 6412c6bdd410913469520a05a1632885,
+    type: 3}
+  m_PrefabInstance: {fileID: 6041931691873786680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6041931691873303538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 499914, guid: 6412c6bdd410913469520a05a1632885,
