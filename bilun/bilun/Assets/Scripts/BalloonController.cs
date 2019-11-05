@@ -24,16 +24,16 @@ public class BalloonController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            RandomizeColor();
-        }
+        // if (Input.GetKeyDown(KeyCode.P))
+        // {
+        //     RandomizeColor();
+        // }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        onHit.Invoke();
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     onHit.Invoke();
+    // }
 
     void RandomizeColor(){
 
@@ -44,6 +44,10 @@ public class BalloonController : MonoBehaviour
     }
 
     public void DestroyBallon(){
+        PlayerHealth player = GetComponentInParent<PlayerHealth>();
+        if (player != null)
+            player.TakeDamage();
+
         Destroy(gameObject);
     }
 }
