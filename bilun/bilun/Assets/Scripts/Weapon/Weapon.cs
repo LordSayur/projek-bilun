@@ -8,7 +8,8 @@ public class Weapon : MonoBehaviour, IEquipable
     public Vector3 holdRotation = Vector3.zero;
 
     Rigidbody weaponRigidBody = null;
-    BoxCollider boxCollider = null;
+    protected BoxCollider boxCollider = null;
+    protected SphereCollider sphereCollider = null;
 
     bool isCarry = false;
 
@@ -16,12 +17,14 @@ public class Weapon : MonoBehaviour, IEquipable
     {
         weaponRigidBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
     }
 
    public virtual void Equip(PlayerAttack actor)
    {
         weaponRigidBody.isKinematic = true;
         boxCollider.enabled = false;
+        sphereCollider.enabled = false;
         isCarry = true;
 
         transform.parent = actor.weaponPlaceHolder;
@@ -35,6 +38,7 @@ public class Weapon : MonoBehaviour, IEquipable
         
         weaponRigidBody.isKinematic = false;
         boxCollider.enabled = true;
+        sphereCollider.enabled = true;
         isCarry = false;
    }
 
