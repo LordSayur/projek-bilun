@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSpawner : Singleton<PlayerSpawner> {
     
-    public GameObject[] playerPrefabs;
+    public GameObject[] players;
     private Transform[] spawnPos;
 
     // players.length < spawnPos.length
@@ -13,7 +13,7 @@ public class PlayerSpawner : Singleton<PlayerSpawner> {
         if(spawnPos == null)
             spawnPos = GetComponentsInChildren<Transform>();
 
-        if (playerPrefabs.Length < spawnPos.Length) {
+        if (players.Length < spawnPos.Length) {
             List<int> occupiedPos = new List<int>();
 
             for (int i = 0; i < playersJoined; i++) {
@@ -28,7 +28,10 @@ public class PlayerSpawner : Singleton<PlayerSpawner> {
 
                 occupiedPos.Add(r);
 
-                GameObject clonePlayer = Instantiate(playerPrefabs[i]);
+                GameObject clonePlayer = Instantiate(players[i]);
+
+                clonePlayer.name = players[i].name;
+
                 clonePlayer.transform.position = new Vector3(spawnPos[r].position.x, spawnPos[r].position.y, spawnPos[r].position.z);
                 GameManager.Instance.players.Add(clonePlayer);
                 PlayerManager playerManager = clonePlayer.GetComponent<PlayerManager>();

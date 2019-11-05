@@ -49,5 +49,10 @@ public class BalloonController : MonoBehaviour
             player.TakeDamage();
 
         gameObject.SetActive(false);
+        // -- Fifah edited
+
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<BalloonTracker>().BalloonDestroyed();
+
+        // ---- // 
     }
 }
