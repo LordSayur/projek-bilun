@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSpawner : MonoBehaviour {
+public class PlayerSpawner : Singleton<PlayerSpawner> {
     
-    public GameObject[] players;
+    public GameObject[] playerPrefabs;
     private Transform[] spawnPos;
 
     // players.length < spawnPos.length
@@ -13,7 +13,7 @@ public class PlayerSpawner : MonoBehaviour {
         if(spawnPos == null)
             spawnPos = GetComponentsInChildren<Transform>();
 
-        if (players.Length < spawnPos.Length) {
+        if (playerPrefabs.Length < spawnPos.Length) {
             List<int> occupiedPos = new List<int>();
 
             for (int i = 0; i < playersJoined; i++) {
@@ -28,9 +28,13 @@ public class PlayerSpawner : MonoBehaviour {
 
                 occupiedPos.Add(r);
 
-                GameObject clonePlayer = Instantiate(players[i]);
+                GameObject clonePlayer = Instantiate(playerPrefabs[i]);
                 clonePlayer.transform.position = new Vector3(spawnPos[r].position.x, spawnPos[r].position.y, spawnPos[r].position.z);
-
+                GameManager.Instance.players.Add(clonePlayer);
+                PlayerManager playerManager = clonePlayer.GetComponent<PlayerManager>();
+                if (playerManager == null)
+                    return;
+                playerManager.Setup(spawnPos[r]);
             }
 
             occupiedPos.Clear();
