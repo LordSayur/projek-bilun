@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : Singleton<CameraController>
 {
     // parameters variable
     Vector3 offset;
@@ -16,9 +16,9 @@ public class CameraController : MonoBehaviour
     private Vector3 velocity;
     [SerializeField] private float smoothTime = 0.5f;
 
-    void Awake()
+    public void SetupCamera()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        players = GameManager.Instance.players.ToArray();
         mainCamera = GetComponent<Camera>();
         offset = transform.position - GetCenterPoint(players);
     }
@@ -27,7 +27,6 @@ public class CameraController : MonoBehaviour
     {
         UpdateCameraPosition();
         UpdateCameraZoom();
-
     }
 
     private void UpdateCameraZoom()
