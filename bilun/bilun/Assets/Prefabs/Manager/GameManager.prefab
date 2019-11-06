@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  TotalRound: 2
+  TotalWin: 5
   startWaitDuration: 2
   endWaitDuration: 2
+  roundState: 0
 --- !u!114 &9203084600209341921
 MonoBehaviour:
   m_ObjectHideFlags: 0
