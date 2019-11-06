@@ -94,12 +94,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024b83926451f2f4c8e664826387d3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalAxis: Horizontal1
-  VerticalAxis: Vertical1
-  Jump: Jump1
-  Dash: Dash1
-  Action: Action1
-  Attack: Attack1
+  playerNumber: 2
+  HorizontalAxis: Horizontal
+  VerticalAxis: Vertical
+  Jump: Jump
+  Dash: Dash
+  Action: Action
+  Attack: Attack
 --- !u!114 &6041931692467445766
 MonoBehaviour:
   m_ObjectHideFlags: 0
