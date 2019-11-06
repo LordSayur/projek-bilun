@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public string playerName = "Player 1";
+    
     PlayerHealth playerHealth;
     PlayerMovement playerMovement;
     PlayerAttack playerAttack;
