@@ -21,6 +21,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (playerInput.AttackInput)
         {
+            if (equipWeapon == null)
+                return;
+
             if (equipWeapon is IShootable)
             {
                 IShootable gun = equipWeapon.GetComponent<IShootable>();
