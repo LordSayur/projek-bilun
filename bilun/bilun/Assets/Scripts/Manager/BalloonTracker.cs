@@ -17,7 +17,7 @@ public class BalloonTracker : MonoBehaviour {
 
     private void Update() {
         if (totalBalloon <= 1) {
-            GetComponent<GameOver>().Trigger();
+            // GetComponent<GameOver>().Trigger();
         }
     }
 
