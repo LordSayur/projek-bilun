@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public int playerNumber = 1;
     public string HorizontalAxis = "Horizontal";
     public string VerticalAxis = "Vertical";
     public string Jump = "Jump";
@@ -21,16 +22,16 @@ public class PlayerInput : MonoBehaviour
 
     public void UpdateInput()
     {
-        MoveInput = new Vector2(Input.GetAxis(HorizontalAxis) * (inverted ? -1 : 1), 
-                                Input.GetAxis(VerticalAxis) * (inverted ? -1 : 1));
+        MoveInput = new Vector2(Input.GetAxis(HorizontalAxis + playerNumber) * (inverted ? -1 : 1), 
+                                Input.GetAxis(VerticalAxis + playerNumber) * (inverted ? -1 : 1));
 
-        JumpInput = Input.GetButtonDown(Jump);
+        JumpInput = Input.GetButtonDown(Jump + playerNumber);
 
-        DashInput = Input.GetButtonDown(Dash);
+        DashInput = Input.GetButtonDown(Dash + playerNumber);
 
-        ActionInput = Input.GetButtonDown(Action);
+        ActionInput = Input.GetButtonDown(Action + playerNumber);
 
-        AttackInput = Input.GetButtonDown(Attack);
+        AttackInput = Input.GetButtonDown(Attack + playerNumber);
     }
 
     public void Reverse(float duration)
