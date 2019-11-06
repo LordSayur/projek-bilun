@@ -14,7 +14,7 @@ public class PickupSpawner : Singleton<PickupSpawner>  {
     private List<int> occupiedPos = new List<int>();
 
     private List<GameObject> spawnPickups = new List<GameObject>();
-    
+
     public void SpawnPickups() {
 
         if(spawnPos == null)
@@ -23,17 +23,17 @@ public class PickupSpawner : Singleton<PickupSpawner>  {
         int totalPickups = weaponMalee.Length + weaponRanged.Length + powerUps.Length;
         int totalPos = spawnPos.Length - 1;
 
-        int totalMalee = Mathf.RoundToInt(totalPos * 0.6f);
+        int totalMalee = Mathf.RoundToInt(totalPos * 0.5f);
         int totalRanged = Mathf.RoundToInt(totalPos * 0.3f);
-        int totalPowerup = Mathf.RoundToInt(totalPos * 0.1f);
+        int totalPowerup = Mathf.RoundToInt(totalPos * 0.2f);
 
-        //Debug.Log(totalMalee + totalRanged + totalPowerup + "/ " + totalPos);
+        // Debug.Log(totalMalee + "," + totalRanged +  "," + totalPowerup + "/ " + totalPos);
 
         if (totalPickups < spawnPos.Length) {
 
             InstantiateObj(totalMalee, weaponMalee);
             InstantiateObj(totalRanged, weaponRanged);
-            //InstantiateObj(totalPowerup, powerUps);
+            InstantiateObj(totalPowerup, powerUps);
 
             occupiedPos.Clear();
 
@@ -44,6 +44,9 @@ public class PickupSpawner : Singleton<PickupSpawner>  {
 
     private void InstantiateObj(int totalObj, GameObject[] arrayObj) {
         int r;
+
+        if (totalObj == 0)
+            return;
 
         for (int i = 0; i < totalObj; i++) {
 
