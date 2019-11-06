@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d91e4784ee99774bbb607cb08f4bcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBalloon: 0
   splashEffect: {fileID: 100748, guid: cd4d7020429cde74db076ffa72495419, type: 3}
 --- !u!114 &3197332565667098125
 MonoBehaviour:
@@ -168,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8f5e261e7c681439715a5799160af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: Player 2
 --- !u!1001 &6041931691873786680
 PrefabInstance:
   m_ObjectHideFlags: 0
