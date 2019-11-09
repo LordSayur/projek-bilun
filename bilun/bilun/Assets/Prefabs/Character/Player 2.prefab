@@ -101,6 +101,7 @@ MonoBehaviour:
   Dash: Dash
   Action: Action
   Attack: Attack
+  deadzone: 0.4
 --- !u!114 &6041931692467445766
 MonoBehaviour:
   m_ObjectHideFlags: 0

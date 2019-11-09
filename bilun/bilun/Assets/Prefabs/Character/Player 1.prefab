@@ -82,12 +82,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024b83926451f2f4c8e664826387d3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 1
   HorizontalAxis: Horizontal
   VerticalAxis: Vertical
   Jump: Jump
   Dash: Dash
   Action: Action
   Attack: Attack
+  deadzone: 0.4
 --- !u!114 &6050680582510814876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d91e4784ee99774bbb607cb08f4bcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBalloon: 0
   splashEffect: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
 --- !u!114 &-3650709469518174867
 MonoBehaviour:
@@ -156,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8f5e261e7c681439715a5799160af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: Player 1
 --- !u!114 &5649650982558979402
 MonoBehaviour:
   m_ObjectHideFlags: 0
