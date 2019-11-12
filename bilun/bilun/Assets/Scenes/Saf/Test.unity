@@ -669,13 +669,13 @@ PrefabInstance:
         type: 3}
       propertyPath: players.Array.data[0]
       value: 
-      objectReference: {fileID: 7591935443378339854, guid: fe0c5017f0b7ebb489604ff8afd6c084,
+      objectReference: {fileID: 6050680582510814877, guid: 44324f0ece91e8342bc4ffcb3f856b04,
         type: 3}
     - target: {fileID: 4680413794805428062, guid: a44e943eccbb19c4dafbbde4b96a2bbc,
         type: 3}
       propertyPath: players.Array.data[1]
       value: 
-      objectReference: {fileID: 5752328857616980564, guid: b12a1b3e8ab371c42b87275312c53166,
+      objectReference: {fileID: 6041931692467445765, guid: 5422f89cbf86e1e4cb6b480e0528271f,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44e943eccbb19c4dafbbde4b96a2bbc, type: 3}

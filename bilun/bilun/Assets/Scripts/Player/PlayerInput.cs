@@ -11,6 +11,8 @@ public class PlayerInput : MonoBehaviour
     public string Dash = "Dash";
     public string Action = "Action";
     public string Attack = "Attack";
+    public float deadzone = 0.4f;
+    public bool isJoystick = false;
 
     public Vector2 MoveInput { get; private set; }
     public bool JumpInput { get; private set; }
@@ -21,9 +23,12 @@ public class PlayerInput : MonoBehaviour
     private bool inverted = false;
 
     public void UpdateInput()
-    {
-        MoveInput = new Vector2(Input.GetAxis(HorizontalAxis + playerNumber) * (inverted ? -1 : 1), 
-                                Input.GetAxis(VerticalAxis + playerNumber) * (inverted ? -1 : 1));
+    {        
+        float horizontal = Input.GetAxis(HorizontalAxis + playerNumber + (isJoystick ? "_Joystick": "_Key"));
+        float vertical = Input.GetAxis(VerticalAxis + playerNumber + (isJoystick ? "_Joystick": "_Key"));
+
+        MoveInput = new Vector2((Mathf.Abs(horizontal) > deadzone ? horizontal : 0) * (inverted ? -1 : 1), 
+                                (Mathf.Abs(vertical) > deadzone ? vertical : 0) * (inverted ? -1 : 1));
 
         JumpInput = Input.GetButtonDown(Jump + playerNumber);
 
