@@ -20,11 +20,6 @@ public class Weapon : MonoBehaviour, IEquipable
         sphereCollider = GetComponent<SphereCollider>();
     }
 
-    void Update()
-    {
-        Debug.Log(weaponRigidBody.velocity.y);
-    }
-
    public virtual void Equip(PlayerAttack actor)
    {
         if (!IsOnGround())
