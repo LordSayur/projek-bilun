@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Saf/Test.unity
     guid: 082d375e3a132c94b975cdc21bb2c97e
+  - enabled: 1
+    path: Assets/Scenes/Prototype Scenes/MainMenu.unity
+    guid: e44a78b65406f6143b02095b52635c61
+  - enabled: 1
+    path: Assets/Scenes/GDG/GDG.unity
+    guid: d6af4bf187c8191429a460c16573cccc
   m_configObjects: {}
