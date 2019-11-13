@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 1811017933}
   - component: {fileID: 1811017932}
   - component: {fileID: 1811017931}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +937,7 @@ PrefabInstance:
     - target: {fileID: 9203084600209341923, guid: 3cd9268432ad42d4dabfce0cde5ac97f,
         type: 3}
       propertyPath: TotalWin
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd9268432ad42d4dabfce0cde5ac97f, type: 3}
