@@ -10,8 +10,7 @@ public class Projectile : MonoBehaviour
         {
             BalloonController balloon = other.GetComponent<BalloonController>();
             balloon.DestroyBallon();
-
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
