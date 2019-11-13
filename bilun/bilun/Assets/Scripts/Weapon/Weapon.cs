@@ -13,8 +13,6 @@ public class Weapon : MonoBehaviour, IEquipable
 
     bool isCarry = false;
 
-    public bool isg = false;
-
     void Awake ()
     {
         weaponRigidBody = GetComponent<Rigidbody>();
@@ -24,12 +22,12 @@ public class Weapon : MonoBehaviour, IEquipable
 
     void Update()
     {
-        isg = IsFalling();
+        Debug.Log(weaponRigidBody.velocity.y);
     }
 
    public virtual void Equip(PlayerAttack actor)
    {
-        if (IsFalling())
+        if (!IsOnGround())
             return;
 
         weaponRigidBody.isKinematic = true;
@@ -54,7 +52,7 @@ public class Weapon : MonoBehaviour, IEquipable
 
    IEnumerator Falling()
    {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         sphereCollider.enabled = true;
         isCarry = false;
@@ -72,7 +70,7 @@ public class Weapon : MonoBehaviour, IEquipable
         }
     }
 
-    bool IsFalling() {
-        return weaponRigidBody.velocity.y < 0;
+    bool IsOnGround() {
+        return weaponRigidBody.velocity.y <= 0;
     }
 }
