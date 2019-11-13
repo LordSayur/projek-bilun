@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
         endWait = new WaitForSeconds(endWaitDuration);
 
         //Spawn all players
-        PlayerSpawner.Instance.SpawnPlayers(2);
+        PlayerSpawner.Instance.SpawnPlayers(PlayerSpawner.Instance.players.Length);
 
         //Setup Camera
         CameraController.Instance.SetupCamera();
