@@ -43,6 +43,7 @@ public class PlayerSpawner : Singleton<PlayerSpawner> {
             occupiedPos.Clear();
 
         } else {
+            Debug.Log(players.Length + " " + spawnPos.Length + " " + playersJoined);
             Debug.LogError("Not enough player spawn position for the given players size");
         }
     }

@@ -90,6 +90,7 @@ MonoBehaviour:
   Action: Action
   Attack: Attack
   deadzone: 0.4
+  isJoystick: 1
 --- !u!114 &6050680582510814876
 MonoBehaviour:
   m_ObjectHideFlags: 0
